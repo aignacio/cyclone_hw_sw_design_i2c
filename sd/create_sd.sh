@@ -12,11 +12,11 @@ echo n; echo p; echo 2; echo ; echo +512M; echo t; echo 2; echo 83; echo w;) | s
 sudo mkfs.vfat $sdcard_fat32;
 sudo mkfs.ext3 -F $sdcard_ext3;
 sync
-# echo "COPYING SOURCES..."
+echo "COPYING SOURCES..."
 sudo dd if=$pathsd/sd/a2/preloader-mkpimage.bin of=$sdcard_a2 bs=64K
-# sudo dd if=$pathsd/sd/fat32/soc_system.rbf of=$sdcard_fat32
-# sudo dd if=$pathsd/sd/fat32/u-boot.img of=$sdcard_fat32
-# sudo dd if=$pathsd/sd/fat32/u-boot.scr of=$sdcard_fat32
-# sudo dd if=$pathsd/sd/fat32/zImage of=$sdcard_fat32
-# sudo tar -xvf $pathsd/sd/ext3/rootfs.tar | sudo dd of=$sdcard_ext3
-# sync
+sudo dd if=$pathsd/sd/fat32/soc_system.rbf of=$sdcard_fat32
+sudo dd if=$pathsd/sd/fat32/u-boot.img of=$sdcard_fat32
+sudo dd if=$pathsd/sd/fat32/u-boot.scr of=$sdcard_fat32
+sudo dd if=$pathsd/sd/fat32/zImage of=$sdcard_fat32
+sudo tar -xvf $pathsd/sd/ext3/rootfs.tar | sudo dd of=$sdcard_ext3
+sync
